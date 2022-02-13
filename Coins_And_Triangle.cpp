@@ -43,8 +43,7 @@ int32_t main()
         {
             count++;
         }
-        cout << count-1 << "\n";
+        cout << count - 1 << "\n";
     }
-
     return 0;
 }
