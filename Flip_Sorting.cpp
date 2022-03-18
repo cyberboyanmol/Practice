@@ -44,7 +44,7 @@ using namespace std;
     ios_base::sync_with_stdio(0); \
     cin.tie(0);                   \
     cout.tie(0);
-void change(string &str, int x)
+void flip(string &str, int x)
 {
     for (int i = x; i < str.length(); i++)
     {
@@ -72,7 +72,7 @@ main()
             if (str[i] == '1')
             {
                 vec_pair.push_back({i + 1, N - i});
-                change(str, i);
+                flip(str, i);
             }
         }
         cout << vec_pair.size() << endl;
