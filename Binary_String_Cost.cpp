@@ -54,16 +54,18 @@ int32_t main()
         cin >> N >> X >> Y;
         string str;
         cin >> str;
-        int val = stoi(str);
         sort(str.begin(), str.end());
-
-        if (str.front() == str.back())
+        if ((X <= Y) && (str.front() != str.back()))
         {
-            cout << "0" << endl;
+            cout << X << endl;
+        }
+        else if ((X > Y) && (str.front() != str.back()))
+        {
+            cout << Y << endl;
         }
         else
         {
-            cout << min(X, Y) << endl;
+            cout << "0" << endl;
         }
     }
     return 0;
