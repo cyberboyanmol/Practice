@@ -53,7 +53,7 @@ void print(int N)
 {
     if (N == 1)
     {
-        cout << 1 << endl;
+        cout << "1" << endl;
         return;
     }
     print(N - 1);
