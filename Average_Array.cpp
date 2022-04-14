@@ -60,7 +60,7 @@ int32_t main()
         int val = X;
         if (N % 2 == 0)
         {
-            int N = N / 2;
+            N = N / 2;
             int i = 1;
             while (N)
             {
