@@ -75,7 +75,7 @@ int32_t main()
         //     cout << "NO" << endl;
         // }
 
-                int check = (N % 10) % 2;
+        int check = (N % 10) % 2;
         N = N / 10;
         bool flg = true;
         while (N)

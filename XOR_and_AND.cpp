@@ -3,6 +3,7 @@
 * AUTHOR   : ANMOL GANGWAR               * *    ***    *
 * LANGUAGE : c++14,c++17                * * *   * *    *
 * IDE      : VS CODE ,codechef(ide)    *     *  ***    *
+
 ********************
 */
 #include <bits/stdc++.h>

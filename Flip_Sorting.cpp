@@ -75,6 +75,7 @@ main()
                 flip(str, i);
             }
         }
+
         cout << vec_pair.size() << endl;
         for (auto it : vec_pair)
         {

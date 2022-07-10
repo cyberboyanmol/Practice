@@ -90,7 +90,6 @@ int32_t main()
             }
         }
     }
-    // cout << Max << endl;
     int flg = 0;
     mii mpp;
     for (int i = 0; i < N; i++)
@@ -104,16 +103,16 @@ int32_t main()
             // cout << frapart << " " << intpart << endl;
             if (frapart == 0 && intpart == Max)
             {
-                mpp[intpart]++;
+                // mpp[intpart]++;
+                flg++;
             }
         }
     }
-    // cout << flg << endl;
-    //  sort(mpp.begin(), mpp.end(), sortbysec);
-    for (auto it : mpp)
-    {
-        cout << it.second << endl;
-        break;
-    }
+    cout << flg << endl;
+    // for (auto it : mpp)
+    // {
+    //     cout << it.second << endl;
+    //     break;
+    // }
     return 0;
 }

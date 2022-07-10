@@ -4,12 +4,12 @@
 * LANGUAGE : c++14,c++17                               *
 * IDE      : VS CODE ,codechef(ide)                    *
 ********************************************************
-         ================================
-                 KEEP GOING
-              EVERYTHING YOU NEED
+        ================================
+                KEEP GOING
+            EVERYTHING YOU NEED
                 WILL COME TO YOU
-              AT THE PERFECT TIME
-         ================================
+            AT THE PERFECT TIME
+        ================================
 */
 #include <bits/stdc++.h>
 using namespace std;

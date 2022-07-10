@@ -39,56 +39,56 @@ using namespace std;
     cin.tie(0);                   \
     cout.tie(0);
 
+void FindLucky()
+{
+    int N;
+    cin >> N;
+    mii mp;
+    vector<pair<string, int>> vec;
+    for (int i = 0; i < N; i++)
+    {
+        int x;
+        string str;
+        cin >> str >> x;
+
+        vec.push_back({str, x});
+    }
+
+    for (auto it : vec)
+    {
+        mp[it.second]++;
+    }
+
+    int val = 0;
+    for (auto it : mp)
+    {
+        if ((it.second == 1))
+        {
+            val = it.first;
+
+            break;
+        }
+    }
+
+    for (auto it : vec)
+    {
+        if (it.second == val)
+        {
+            cout << it.first << endl;
+            return;
+        }
+    }
+
+    cout << "Nobody wins." << endl;
+    return;
+}
 int32_t main()
 {
     fast;
     tc(t)
     {
-        int N;
-        cin >> N;
-        mii mp;
-        vector<pair<string, int>> vec;
-        for (int i = 0; i < N; i++)
-        {
-            int x;
-            string str;
-            cin >> str >> x;
-
-            vec.push_back({str, x});
-        }
-
-        for (auto it : vec)
-        {
-            mp[it.second]++;
-        }
-
-        // for (auto it : mp)
-        // {
-        //     cout << it.first << " " << it.second << endl;
-        // }
-        int val = 0;
-        for (auto it : mp)
-        {
-            if ((it.second == 1))
-            {
-                val = it.first;
-                // cout << it.first << endl;
-                break;
-            }
-        }
-        // cout << val << endl;
-
-        bool lucky = true;
-        for (auto it : vec)
-        {
-            if (it.second == val)
-            {
-                cout << it.first << endl;
-                lucky = false;
-            }
-        }
-        if (lucky)
-            cout << "Nobody wins." << endl;
+        FindLucky();
     }
+
     return 0;
 }
