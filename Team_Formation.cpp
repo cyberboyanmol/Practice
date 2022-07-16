@@ -19,7 +19,6 @@
 #define emb emplace_back
 #define em emplace
 #define in insert
-#define mp_ map<long long, int>
 #define tc(t) while (t--)
 using namespace std;
 
@@ -28,33 +27,46 @@ int main()
     ios_base::sync_with_stdio(false);
     cin.tie(NULL);
     cout.tie(NULL);
+
     ll t;
     cin >> t;
     tc(t)
     {
-        ll N;
-        cin >> N;
-        int index = 0;
-        mp_ arr;
-        ll res;
+        int n, RES(0), RES1(0), RES2(0);
+        ll num, num1, num2;
+        cin >> n;
+        ll rem = n / 2;
+        string S1, T1;
+        cin >> S1;
+        cin >> T1;
+        for (int i = 0; i < n; i++)
+        {
+            if (S1[i] == '1' && T1[i] == '1')
+            {
+                RES += 1;
+            }
+            else if (S1[i] == '1' && T1[i] == '0')
+            {
+                RES1 += 1;
+            }
+            else if (S1[i] == '0' && T1[i] == '1')
+            {
+                RES2 += 1;
+            }
+        }
+        if (RES == RES2)
+        {
+            num = RES + RES1;
+            cout << min(num, rem) << endl;
+        }
 
-        for1(i, 0, N, 1)
+        else
         {
 
-            cin >> res;
-            arr[res]++;
-            index = max(index, arr[res]);
+            num1 = min(RES, RES2);
+            num2 = RES1 + num1;
+            cout << min(num2, rem) << endl;
         }
-        cout << index << " ";
-        ll sol(0);
-        if (N > 2)
-        {
-            if (index == 1)
-                sol = N - 2;
-            else
-                sol = N - index;
-        }
-        cout << sol << endl;
     }
     return 0;
 }

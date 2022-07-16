@@ -19,7 +19,6 @@
 #define emb emplace_back
 #define em emplace
 #define in insert
-#define mp_ map<long long, int>
 #define tc(t) while (t--)
 using namespace std;
 
@@ -32,29 +31,44 @@ int main()
     cin >> t;
     tc(t)
     {
-        ll N;
-        cin >> N;
-        int index = 0;
-        mp_ arr;
-        ll res;
+        ll N, M, Q;
+        cin >> N >> M >> Q;
+        ll chr[N] = {0}, case1(1), s(0);
 
+        tc(Q)
+        {
+            char ch;
+            int i;
+            cin >> ch >> i;
+            if (ch == '+')
+            {
+                chr[i - 1]++;
+                s++;
+                if (chr[i - 1] < 0)
+                    case1 = 0;
+            }
+            if (case1 > M)
+                case1 = 0;
+            if (ch == '-')
+            {
+                chr[i - 1]--;
+                s--;
+                if (chr[i - 1] < 0)
+                    case1 = 0;
+            }
+            if (s > M)
+                case1 = 0;
+        }
         for1(i, 0, N, 1)
         {
+            if (chr[i] < 0)
+                case1 = 0;
+        }
 
-            cin >> res;
-            arr[res]++;
-            index = max(index, arr[res]);
-        }
-        cout << index << " ";
-        ll sol(0);
-        if (N > 2)
-        {
-            if (index == 1)
-                sol = N - 2;
-            else
-                sol = N - index;
-        }
-        cout << sol << endl;
+        if (case1 == 0)
+            cout << "Inconsistent\n";
+        else
+            cout << "Consistent\n";
     }
-    return 0;
+    return EXIT_SUCCESS;
 }

@@ -19,7 +19,6 @@
 #define emb emplace_back
 #define em emplace
 #define in insert
-#define mp_ map<long long, int>
 #define tc(t) while (t--)
 using namespace std;
 
@@ -32,29 +31,30 @@ int main()
     cin >> t;
     tc(t)
     {
-        ll N;
-        cin >> N;
-        int index = 0;
-        mp_ arr;
-        ll res;
-
-        for1(i, 0, N, 1)
+        ll n, k;
+        cin >> n >> k;
+        ll arr[n];
+        for (int i = 0; i < n; i++)
         {
-
-            cin >> res;
-            arr[res]++;
-            index = max(index, arr[res]);
+            cin >> arr[i];
         }
-        cout << index << " ";
-        ll sol(0);
-        if (N > 2)
+        sort(arr, arr + n, greater<int>());
+        // for (int i = 0; i < n; i++)
+        // {
+        //     cout << arr[i] << " ";
+        // }
+        ll index = 0;
+        for (int i = 0; i < 9; i++)
         {
-            if (index == 1)
-                sol = N - 2;
-            else
-                sol = N - index;
+            int count = 1;
+            for (int j = i + 1; j < 10; j++)
+            {
+                if (arr[i] == arr[j])
+                    count++;
+                index = count;
+            }
         }
-        cout << sol << endl;
+        cout << k + index << endl;
     }
     return 0;
 }

@@ -1,78 +1,103 @@
-/*
-********************
-* AUTHOR   : ANMOL GANGWAR               * *    ***    *
-* LANGUAGE : c++14,c++17                * * *   * *    *
-* IDE      : VS CODE ,codechef(ide)    *     *  ***    *
-********************
-*/
 #include <bits/stdc++.h>
-using namespace std;
-#define ff first
-#define ss second
-#define int long long
-#define ull unsigned long long
-#define endl "\n"
-#define pb emplace_back
+#define ll long long
+#define ld long double
 #define mp make_pair
-#define pii pair<int, int>
-#define vi vector<int>
-#define vs vector<string>
-#define mii map<int, int>
-#define pqb priority_queue<int>
-#define lb(x, n) lower_bound(all(x), n)
-#define ub(x, n) upper_bound(all(x), n)
-#define all(x) x.begin(), x.end()
-#define maxi(x) x[max_element(all(x)) - x.begin()]
-#define mini(x) x[min_element(all(x)) - x.begin()]
-#define pqs priority_queue<int, vi, greater<int>>
-#define setbits(x) __builtin_popcountll(x)
-#define zrobits(x) __builtin_ctzll(x)
-#define mod 1000000007
-#define inf 1e18
-#define ps(x, y) fixed << setprecision(y) << x
-#define tc(t) \
-    int t;    \
-    cin >> t; \
-    while (t--)
-#define fast                      \
-    ios_base::sync_with_stdio(0); \
-    cin.tie(0);                   \
-    cout.tie(0);
+#define pb push_back
+#define in insert
+#define vll vector<ll>
+#define pll pair<ll, ll>
+#define all(x) (x).begin(), (x).end()
+#define f first
+#define s second
+#define pr(x) cout << x << endl;
+#define pr2(x, y) cout << x << " " << y << endl;
+#define pr3(x, y, z) cout << x << " " << y << endl;
+#define prv(v)       \
+    for (auto x : v) \
+        cout << x << " ";
+#define ffs fflush(stdout);
+#define int ll
+#define sz(x) (ll) x.size()
+using namespace std;
 
-int32_t main()
+const ll N = (1e5 + 5);
+const ll MOD = 1e9 + 7;
+const ll INF = LLONG_MAX;
+const ll LOG = 29;
+#define PI 3.141592653589793238
+
+void solve()
 {
-    fast;
-    tc(t)
+    int n, m, x;
+    cin >> n >> m >> x;
+    int arr[n + 1];
+    int c = 0;
+    for (int i = 1; i <= n; i++)
+    {
+        cin >> arr[i];
+        if (arr[i] >= m)
+            c++;
+    }
+    if (c >= x)
     {
 
-        int N, M, X;
-        cin >> N >> M >> X;
-        vi vec;
-        vector<pair<int, int>> pair;
-        for (int i = 0; i < N; i++)
+        cout << c << " ";
+        for (int i = 1; i <= n; i++)
         {
-            int x;
-            cin >> x;
-
-            pair.emplace_back(make_pair(x, i));
-        }
-        sort(pair.begin(), pair.end());
-
-        for (int i = N - 1; i >= 0; i--)
-        {
-            if (pair[i].first >= M || vec.size() < X)
+            if (arr[i] >= m)
             {
-                vec.emplace_back(pair[i].second);
+                cout << i << " ";
             }
-        }
-
-        sort(vec.begin(), vec.end());
-        cout << vec.size() << " ";
-        for (auto it : vec)
-        {
-            cout << it + 1 << " ";
         }
         cout << endl;
     }
-    return 0;
+    else
+    {
+        cout << x << " ";
+        if (c > 0)
+        {
+            for (int i = 1; i <= n; i++)
+            {
+                if (arr[i] >= m)
+                {
+                    arr[i] = -1;
+                }
+            }
+        }
+
+        int z = x - c;
+        while (z--)
+        {
+            int maxindex = 0;
+            int max = 0;
+            for (int i = 1; i <= n; i++)
+            {
+                if (arr[i] > max)
+                {
+                    max = arr[i];
+                    maxindex = i;
+                }
+            }
+            arr[maxindex] = -1;
+        }
+        for (int i = 1; i <= n; i++)
+        {
+            if (arr[i] == -1)
+                cout << i << " ";
+        }
+        cout << endl;
+    }
+}
+
+signed main()
+{
+    ios_base::sync_with_stdio(0);
+    cin.tie(NULL);
+
+    ll t = 1;
+    cin >> t;
+    while (t--)
+    {
+        solve();
+    }
 }

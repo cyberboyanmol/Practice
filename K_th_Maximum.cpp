@@ -19,7 +19,6 @@
 #define emb emplace_back
 #define em emplace
 #define in insert
-#define mp_ map<long long, int>
 #define tc(t) while (t--)
 using namespace std;
 
@@ -28,33 +27,27 @@ int main()
     ios_base::sync_with_stdio(false);
     cin.tie(NULL);
     cout.tie(NULL);
-    ll t;
+    ll t, N, K;
     cin >> t;
     tc(t)
     {
-        ll N;
-        cin >> N;
-        int index = 0;
-        mp_ arr;
-        ll res;
+        cin >> N >> K;
+        vec arr;
 
         for1(i, 0, N, 1)
         {
+            int x;
+            cin >> x;
+            arr.emplace_back(x);
+        }
 
-            cin >> res;
-            arr[res]++;
-            index = max(index, arr[res]);
-        }
-        cout << index << " ";
-        ll sol(0);
-        if (N > 2)
+        sort(arr.begin(), arr.end(), greater<int>());
+
+        for1(i, 0, K, 1)
         {
-            if (index == 1)
-                sol = N - 2;
-            else
-                sol = N - index;
+
+            cout << arr.at(i) << " ";
         }
-        cout << sol << endl;
     }
     return 0;
 }
